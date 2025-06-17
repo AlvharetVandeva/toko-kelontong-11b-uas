@@ -6,30 +6,30 @@ export default async function Page() {
 	const timMembers = [
     {
       id: 1,
-      nama: 'Andi Susanto',
+      nama: 'Nikola Iriandi Setiawan',
       jabatan: 'Pemilik Toko',
-      foto: '/assets/andi.jpg',
+      foto: 'tim/Nikola.jpg',
       deskripsi: 'Pendiri Toko Kelontong Pak Rangga dengan pengalaman lebih dari 15 tahun dalam bisnis ritel.'
     },
     {
       id: 2,
-      nama: 'Budi Santoso',
+      nama: 'Alvharet Vandeva Lombu',
       jabatan: 'Manajer Operasional',
-      foto: '/assets/budi.jpg',
+      foto: 'tim/Alvharet.jpg',
       deskripsi: 'Bertanggung jawab atas operasional harian toko dan manajemen stok barang.'
     },
     {
       id: 3,
-      nama: 'Citra Dewi',
+      nama: 'Humaidah A.Z.',
       jabatan: 'Kasir Utama',
-      foto: '/assets/citra.jpg',
+      foto: 'tim/Humaidah.jpg',
       deskripsi: 'Melayani pelanggan dengan ramah dan efisien dalam proses pembayaran.'
     },
     {
       id: 4,
-      nama: 'Dewi Anggraini',
+      nama: 'Angelditha P.',
       jabatan: 'Staf Pelayanan Pelanggan',
-      foto: '/assets/dewi.jpg',
+      foto: 'tim/Angelditha.jpg',
       deskripsi: 'Memastikan kepuasan pelanggan dan menangani pertanyaan serta keluhan.'
     }
   ];
@@ -49,16 +49,21 @@ export default async function Page() {
 					{/* Team Members Grid */}
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 						{timMembers.map((member) => (
-							<div key={member.id} className="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl">
-								<div className="relative h-64 w-full">
+							<div
+								key={member.id}
+								className="bg-white rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-xl flex flex-col"
+							>
+								<div className="relative w-full h-72 bg-gray-100">
 									<Image
-										src={member.foto}
+										src={`/${member.foto}`}
 										alt={member.nama}
 										fill
-										className="object-cover"
+										className="object-cover object-center"
+										sizes="(max-width: 768px) 100vw, 25vw"
+										priority
 									/>
 								</div>
-								<div className="p-5">
+								<div className="p-5 flex-1 flex flex-col">
 									<h3 className="text-xl font-semibold text-gray-800">{member.nama}</h3>
 									<p className="text-green-600 font-medium mb-2">{member.jabatan}</p>
 									<p className="text-gray-600">{member.deskripsi}</p>
@@ -66,7 +71,6 @@ export default async function Page() {
 							</div>
 						))}
 					</div>
-
 					{/* Our Values Section */}
 					<div className="mt-16">
 						<h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center">Nilai-Nilai Kami</h2>
